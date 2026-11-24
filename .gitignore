@@ -1,0 +1,10 @@
+node_modules/
+.env
+test-results/
+playwright-report/
+blob-report/
+.cache/
+.idea/
+.vscode/
+# Los reportes de cada corrida local se regeneran; la evidencia oficial se versiona en evidence/
+reports/
