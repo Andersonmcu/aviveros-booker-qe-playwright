@@ -52,12 +52,12 @@ test.describe('Reserva por API — flujo exitoso', { tag: ['@api', '@smoke', '@r
   }
 });
 
+// Fuera de @smoke a propósito: el gate de smoke refleja solo el flujo principal.
 test.describe('Reserva por API — contrato vs observado', { tag: ['@api', '@regression'] }, () => {
   /**
-   * Contrato documentado: GET /booking/{id} devuelve la reserva (200).
-   * Observado: la demo responde 500 en todas las rutas con id (BUG-01).
-   * test.fail() mantiene la expectativa del contrato: si el bug se corrige, esta prueba "falla"
-   * y avisa que hay que quitar la marca. No es una aserción debilitada.
+   * Contrato: GET /booking/{id} devuelve la reserva (200). Observado: 500 en la demo (BUG-01).
+   * test.fail() conserva la expectativa del contrato sin debilitarla: si el bug se corrige,
+   * esta prueba se pone roja y avisa que hay que quitar la marca.
    */
   test('consulta por id según contrato (BUG-01 conocido)', { tag: ['@known-bug'] }, async ({ bookingApi, bookingDraft, trackBooking }) => {
     test.fail(true, 'BUG-01: GET /api/booking/{id} responde 500 en la demo');

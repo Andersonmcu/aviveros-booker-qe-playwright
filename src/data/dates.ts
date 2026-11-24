@@ -17,7 +17,7 @@ export function overlaps(a: BookingDates, b: BookingDates): boolean {
 
 /**
  * Elige un rango de fechas futuro y libre para la habitación.
- * Se usa una ventana amplia (1 a ~6 años adelante) y aleatoria para que workers paralelos y
+ * La ventana es amplia (1 a ~6 años adelante) y aleatoria para que workers paralelos y
  * otros usuarios de la demo compartida no colisionen; además se excluyen los rangos ya ocupados.
  */
 export function pickAvailableRange(booked: BookingDates[], nights = 2, today = new Date()): BookingDates {

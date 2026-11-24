@@ -6,6 +6,7 @@ export interface BookingDates {
   checkout: string;
 }
 
+/** Límites observados: firstname 3-18, lastname 3-30, phone 11-21, email bien formado. */
 export interface Guest {
   firstname: string;
   lastname: string;
@@ -20,7 +21,10 @@ export interface BookingRequest extends Guest {
   bookingdates: BookingDates;
 }
 
-/** Respuesta de POST /api/booking y elementos de GET /api/booking?roomid= */
+/**
+ * Respuesta de POST /api/booking y elementos de GET /api/booking?roomid=
+ * La API no devuelve email ni phone, por lo que no se pueden verificar por esta vía.
+ */
 export interface BookingResponse {
   bookingid: number;
   roomid: number;
@@ -34,7 +38,7 @@ export interface BookingList {
   bookings: BookingResponse[];
 }
 
-/** GET /api/booking/summary?roomid= (nota: usa `bookingDates` en camelCase, distinto a `bookingdates`) */
+/** GET /api/booking/summary?roomid= (usa `bookingDates` en camelCase, distinto a `bookingdates`) */
 export interface BookingSummary {
   bookings: { bookingDates: BookingDates }[];
 }

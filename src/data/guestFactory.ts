@@ -9,7 +9,6 @@ function randomLetters(n: number): string {
 /**
  * Huésped sintético. El apellido lleva un sufijo aleatorio para que cada prueba pueda
  * identificar *su* registro en una demo compartida (y verificar que un rechazo no lo creó).
- * Límites observados: firstname 3-18, lastname 3-30, phone 11-21, email válido.
  */
 export function buildGuest(overrides: Partial<Guest> = {}): Guest {
   const suffix = randomLetters(6);

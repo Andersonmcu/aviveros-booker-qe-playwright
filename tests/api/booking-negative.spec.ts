@@ -3,8 +3,8 @@ import { BookingRequest, ValidationErrorBody } from '../../src/api/types';
 
 /**
  * Escenario 2 — API negativa: dato obligatorio ausente o inválido.
- * Se valida (a) el rechazo con 400 y mensaje de validación, y (b) que no se creó la reserva,
- * buscando el apellido único de la prueba en el listado de la habitación.
+ * Se parte de un cuerpo válido y se rompe un solo campo, para atribuir el rechazo a ese campo.
+ * Se valida (a) el 400 con su mensaje y (b) que no se creó la reserva, buscando el apellido único de la prueba.
  */
 type Mutation = (body: BookingRequest) => Record<string, unknown>;
 
@@ -13,6 +13,12 @@ const cases: { title: string; mutate: Mutation; expectedError: string }[] = [
     title: 'sin firstname (obligatorio ausente)',
     mutate: ({ firstname: _omit, ...rest }) => rest,
     expectedError: 'Firstname should not be blank',
+  },
+  {
+    // Limitación: aquí el apellido enviado es 'Ab', así que la verificación de "no creada" por apellido es más débil.
+    title: 'lastname con longitud inválida (2 letras)',
+    mutate: (body) => ({ ...body, lastname: 'Ab' }),
+    expectedError: 'size must be between 3 and 30',
   },
   {
     title: 'email con formato inválido',

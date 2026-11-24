@@ -3,8 +3,9 @@ import { BookingDates, BookingList, BookingRequest, BookingResponse, BookingSumm
 
 /**
  * Cliente del servicio de reservas (/api/booking).
- * Los métodos "raw" devuelven la APIResponse sin afirmar nada: las pruebas deciden qué esperar.
- * Los métodos de conveniencia (createOk, findInRoom, ...) afirman lo mínimo para ser útiles en fixtures.
+ * - Métodos "raw": devuelven la APIResponse sin afirmar nada; la prueba decide qué esperar
+ *   (así sirven igual para casos positivos y negativos).
+ * - Métodos de conveniencia: combinan llamadas y devuelven datos tipados para fixtures y pruebas.
  */
 export class BookingClient {
   constructor(
@@ -12,13 +13,14 @@ export class BookingClient {
     private readonly token?: string,
   ) {}
 
+  /** El backend espera el token como cookie. */
   private get authHeaders(): Record<string, string> {
     return this.token ? { Cookie: `token=${this.token}` } : {};
   }
 
-  // ---------- llamadas raw ----------
+  // ---------- raw ----------
 
-  /** POST /api/booking (público, no requiere token). Acepta cuerpos parciales para casos negativos. */
+  /** POST /api/booking (público). Acepta cuerpos parciales para casos negativos. */
   create(body: Partial<BookingRequest> | Record<string, unknown>): Promise<APIResponse> {
     return this.request.post('/api/booking', { data: body });
   }
@@ -28,7 +30,7 @@ export class BookingClient {
     return this.request.get('/api/booking', { params: { roomid }, headers: this.authHeaders });
   }
 
-  /** GET /api/booking/{id} (requiere token). Ver BUG-01: hoy responde 500 en la demo. */
+  /** GET /api/booking/{id} (requiere token). Hoy responde 500 en la demo (BUG-01). */
   getById(bookingid: number): Promise<APIResponse> {
     return this.request.get(`/api/booking/${bookingid}`, { headers: this.authHeaders });
   }
@@ -38,7 +40,7 @@ export class BookingClient {
     return this.request.get('/api/booking/summary', { params: { roomid }, headers: this.authHeaders });
   }
 
-  /** DELETE /api/booking/{id} (requiere token). Ver BUG-01. */
+  /** DELETE /api/booking/{id} (requiere token). Hoy responde 500 en la demo (BUG-01). */
   delete(bookingid: number): Promise<APIResponse> {
     return this.request.delete(`/api/booking/${bookingid}`, { headers: this.authHeaders });
   }
@@ -51,7 +53,7 @@ export class BookingClient {
     return ((await response.json()) as BookingList).bookings;
   }
 
-  /** "Consultar una reserva": el único endpoint de lectura funcional hoy es el listado por habitación. */
+  /** "Consultar una reserva": mientras GET /{id} falle, el listado por habitación es la vía funcional. */
   async findInRoom(roomid: number, bookingid: number): Promise<BookingResponse | undefined> {
     return (await this.bookingsInRoom(roomid)).find((b) => b.bookingid === bookingid);
   }
@@ -61,6 +63,7 @@ export class BookingClient {
     return (await this.bookingsInRoom(roomid)).filter((b) => b.lastname === lastname);
   }
 
+  /** Rangos ya ocupados; se usan para elegir fechas disponibles antes de reservar. */
   async bookedRanges(roomid: number): Promise<BookingDates[]> {
     const response = await this.summary(roomid);
     expect(response.status(), `GET /api/booking/summary?roomid=${roomid}`).toBe(200);
