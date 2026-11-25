@@ -30,6 +30,11 @@ export class BookingClient {
     return this.request.get('/api/booking', { params: { roomid }, headers: this.authHeaders });
   }
 
+  /** GET /api/booking sin roomid: según Postman devuelve todas las reservas. Hoy responde 400 (BUG-05). */
+  listAll(): Promise<APIResponse> {
+    return this.request.get('/api/booking', { headers: this.authHeaders });
+  }
+
   /** GET /api/booking/{id} (requiere token). Hoy responde 500 en la demo (BUG-01). */
   getById(bookingid: number): Promise<APIResponse> {
     return this.request.get(`/api/booking/${bookingid}`, { headers: this.authHeaders });

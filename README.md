@@ -4,9 +4,11 @@ Pruebas automatizadas **API y UI** con **Playwright Test + TypeScript** para la 
 [Restful Booker Platform](https://automationintesting.online/). Es la solución a la prueba técnica de Quality Engineer
 de Andersson Viveros.
 
-> **Estado actual: 5 de 9 pruebas en verde.** Las 4 en rojo son **defectos reales del producto**,
-> no de las pruebas: BUG-01 deja la página de reserva por UI en blanco, y BUG-04 hace que la API responda 409
-> a una reserva que sí se guardó (intermitente). Detalle en [docs/bugs.md](docs/bugs.md). No se debilitó ninguna aserción ni se usó `skip`.
+> **Estado actual (corrida oficial): 11 de 13 pruebas pasan; 2 fallan.** Las 2 en rojo son las de UI y fallan por un
+> **defecto real del producto** (BUG-01: la página de reserva queda en blanco), no de las pruebas. Las 11 incluyen 4
+> pruebas de contrato que documentan bugs conocidos con `test.fail`. Además, las pruebas de creación por API fallan de
+> forma intermitente por BUG-04 (409 a una reserva que sí se guardó). Detalle en [docs/bugs.md](docs/bugs.md).
+> No se debilitó ninguna aserción ni se usó `skip`.
 
 ---
 
@@ -42,8 +44,9 @@ Para cambiarlos, copia `.env.example` a `.env`.
 | `BROWSER_CHANNEL` | (vacío) | `chrome` para usar el Chrome instalado |
 
 **Rutas y autenticación confirmadas en la demo:** `POST /api/auth/login` → `{ token }`; los endpoints protegidos lo
-esperan como cookie `token=<valor>`. La demo es **compartida y se reinicia**, así que cada prueba crea sus propios datos.
-Detalle completo en [docs/contrato-vs-observado.md](docs/contrato-vs-observado.md).
+esperan como cookie `token=<valor>`. Según la documentación de Postman, la demo **se reinicia cada 10 minutos** (datos y tokens),
+así que cada prueba crea sus propios datos y el token se obtiene al inicio de cada corrida.
+Expectativas definidas desde la colección Postman: [docs/contrato-vs-observado.md](docs/contrato-vs-observado.md).
 
 ## 3. Comandos
 
@@ -67,15 +70,18 @@ Detalle completo en [docs/contrato-vs-observado.md](docs/contrato-vs-observado.m
 |---|---|---|---|
 | **1. API exitosa** (2 conjuntos de datos) | `tests/api/booking-create.spec.ts` | 201; `bookingid`; habitación, fechas, nombre, apellido y depósito; el mismo registro en el listado (`toEqual`); fechas ocupadas en `/summary` | 🔴 intermitente por BUG-04 (409 con la reserva guardada). Falló en 2 de ~9 corridas, incluida la oficial |
 | Contrato `GET /booking/{id}` | ídem | Expectativa del contrato (200) marcada con `test.fail` por BUG-01 | ✅ (fallo esperado) |
+| Contrato Postman y validaciones (4) | `tests/api/booking-contract.spec.ts` | `email`/`phone` opcionales (201); sin `bookingdates` → 400 (BUG-02); fechas invertidas → 400 (BUG-03); listado sin `roomid` → 200 (BUG-05) | ✅ 1 verde + 3 fallos esperados |
 | **2. API negativa** (4 casos) | `tests/api/booking-negative.spec.ts` | 400 + mensaje (sin firstname, lastname de 2 letras, email inválido, teléfono corto) y que **no se creó** la reserva | ✅ |
 | **3. UI + API** (habitaciones 1 y 2) | `tests/ui/reservation.spec.ts` | Reserva por UI → "Booking Confirmed" con el rango de fechas → mismo registro por API (habitación, fechas, nombre, apellido) | 🔴 BUG-01: la página no carga |
 
 - **Datos:** huésped sintético con apellido único (`QaXxxxxx`) y fechas **libres** consultadas en `/api/booking/summary`.
 - **Paralelismo:** `fullyParallel` con 2 workers; ninguna prueba depende de otra.
 - **Evidencia ante fallos:** trace, screenshot y video (`retain-on-failure`), además de JSON y JUnit.
-- **Ejecución oficial:** [`evidence/2026-11-25T00-35-36-068Z`](evidence/2026-11-25T00-35-36-068Z) (`exitCode=1`, 5 pasan y 4 fallan por BUG-01/BUG-04).
-  Corridas anteriores: [`2026-11-24T13-44-14-512Z`](evidence/2026-11-24T13-44-14-512Z) (API 6/6 en verde, antes del caso de lastname)
-  y [`2026-11-24T23-14-52-923Z`](evidence/2026-11-24T23-14-52-923Z) (la del agente: API 7/7, UI 0/2 por BUG-01).
+- **Ejecución oficial:** [`evidence/2026-11-25T01-06-31-207Z`](evidence/2026-11-25T01-06-31-207Z) (`exitCode=1`: 11 pasan, 2 fallan por BUG-01).
+  Corridas anteriores, conservadas como evidencia:
+  - [`2026-11-25T00-35-36-068Z`](evidence/2026-11-25T00-35-36-068Z): **evidencia de BUG-04** (las 2 creaciones por API reciben 409 y las reservas quedan guardadas; trace incluido).
+  - [`2026-11-24T23-14-52-923Z`](evidence/2026-11-24T23-14-52-923Z): la corrida del agente (API 7/7, UI 0/2 por BUG-01).
+  - [`2026-11-24T13-44-14-512Z`](evidence/2026-11-24T13-44-14-512Z): primera corrida, API 6/6 en verde.
 
 ## 5. Arquitectura
 
@@ -108,7 +114,8 @@ docs/                      contrato vs observado, bugs, casos adicionales, skill
 - **BUG-01 (alta):** todas las rutas `/api/<recurso>/{id}` responden 500. La reserva por UI no carga y no se puede borrar.
 - **BUG-02 (media):** `POST /api/booking` sin `bookingdates` responde 500 en vez de 400.
 - **BUG-03 (baja):** checkout < checkin responde 409 (conflicto) en vez de 400.
-- **BUG-04 (media, intermitente):** el POST de reserva responde 409 aunque la reserva **se guardó**, probablemente por un reintento del proxy. En la UI, además, la página se cae. **Confirmado por API** en la corrida oficial.
+- **BUG-04 (media, intermitente):** el POST de reserva responde 409 aunque la reserva **se guardó**, probablemente por un reintento del proxy. En la UI, además, la página se cae. **Confirmado por API** (`evidence/2026-11-25T00-35-36-068Z`).
+- **BUG-05 (baja):** `GET /api/booking/` sin `roomid` responde 400, aunque la documentación de Postman dice que devuelve todas las reservas.
 
 **Limitaciones**
 - La API no devuelve `email` ni `phone`, así que no se verifican por API.
@@ -172,6 +179,7 @@ Preguntó si marcar las pruebas UI con `test.fail`; **decisión humana: dejarlas
 | 3 | BUG-04 quedó como hipótesis: el trace se perdió | Se confirmó por API en la corrida oficial: 2 reservas con 409 que sí quedaron guardadas, con trace conservado | Un bug sin evidencia no es accionable |
 | 4 | Intermitencia previa en las pruebas API sin explicar | Relacionada con BUG-04 y documentada; `retries` se mantiene en 0 | No ocultar el fallo con reintentos |
 | 5 | Calidad del POM, locators, esperas y aserciones | Sin cambios: locators por rol sacados del código oficial, sin esperas fijas, `expect.poll` para la consulta API, aserciones completas | Cumple las convenciones de la skill |
+| 6 | En la revisión final de requerimientos se vio que el contrato se había armado con el código y sondas, sin la colección Postman, y que BUG-02 y BUG-03 no tenían evidencia | Se leyó la colección Postman y se reescribió `docs/contrato-vs-observado.md` indicando la fuente de cada expectativa. Se agregaron 4 pruebas de contrato (`booking-contract.spec.ts`), que además encontraron **BUG-05** | El enunciado pide definir las expectativas desde la documentación y adjuntar evidencia de cada bug |
 
 **Skills adicionales propuestas:** [docs/skills-propuestas.md](docs/skills-propuestas.md) (`failure-triage` primero, `api-contract-diff`, `test-data-steward`).
 

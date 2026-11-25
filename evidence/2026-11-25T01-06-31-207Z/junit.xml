@@ -1,0 +1,202 @@
+<testsuites id="" name="" tests="13" failures="2" skipped="0" errors="0" time="43.756254999999996">
+<testsuite name="api\booking-contract.spec.ts" timestamp="2026-11-25T01:06:32.699Z" hostname="api" tests="4" failures="0" skipped="0" time="33.623" errors="0">
+<testcase name="Reserva por API — contrato vs observado (validaciones) › email y phone son opcionales según la documentación" classname="api\booking-contract.spec.ts" time="0.865">
+<properties>
+<property name="cleanup" value="No se pudo borrar la reserva 6: DELETE respondió 500 (ver BUG-01)">
+</property>
+</properties>
+</testcase>
+<testcase name="Reserva por API — contrato vs observado (validaciones) › sin bookingdates responde 400 (BUG-02 conocido)" classname="api\booking-contract.spec.ts" time="31.685">
+<properties>
+<property name="fail" value="BUG-02: sin bookingdates responde 500 en vez de 400">
+</property>
+</properties>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\booking-contract-Reserva-p-0a29c-sponde-400-BUG-02-conocido--api\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Reserva por API — contrato vs observado (validaciones) › checkout anterior al checkin responde 400 (BUG-03 conocido)" classname="api\booking-contract.spec.ts" time="0.669">
+<properties>
+<property name="fail" value="BUG-03: fechas invertidas responden 409 (conflicto) en vez de 400">
+</property>
+</properties>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\booking-contract-Reserva-p-49acf-sponde-400-BUG-03-conocido--api\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Reserva por API — contrato vs observado (validaciones) › GET /booking/ sin roomid devuelve todas las reservas (BUG-05 conocido)" classname="api\booking-contract.spec.ts" time="0.404">
+<properties>
+<property name="fail" value="BUG-05: sin roomid responde 400 &quot;Room ID is required&quot;">
+</property>
+</properties>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\booking-contract-Reserva-p-64437-s-reservas-BUG-05-conocido--api\error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="api\booking-create.spec.ts" timestamp="2026-11-25T01:06:32.699Z" hostname="api" tests="3" failures="0" skipped="0" time="3.817" errors="0">
+<testcase name="Reserva por API — flujo exitoso › crea y consulta una reserva: habitación Single, 2 noches, sin depósito" classname="api\booking-create.spec.ts" time="1.296">
+<properties>
+<property name="cleanup" value="No se pudo borrar la reserva 7: DELETE respondió 500 (ver BUG-01)">
+</property>
+</properties>
+</testcase>
+<testcase name="Reserva por API — flujo exitoso › crea y consulta una reserva: habitación Suite, 4 noches, con depósito" classname="api\booking-create.spec.ts" time="1.407">
+<properties>
+<property name="cleanup" value="No se pudo borrar la reserva 8: DELETE respondió 500 (ver BUG-01)">
+</property>
+</properties>
+</testcase>
+<testcase name="Reserva por API — contrato vs observado › consulta por id según contrato (BUG-01 conocido)" classname="api\booking-create.spec.ts" time="1.114">
+<properties>
+<property name="fail" value="BUG-01: GET /api/booking/{id} responde 500 en la demo">
+</property>
+<property name="cleanup" value="No se pudo borrar la reserva 9: DELETE respondió 500 (ver BUG-01)">
+</property>
+</properties>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\booking-create-Reserva-por-674f4-n-contrato-BUG-01-conocido--api\error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="api\booking-negative.spec.ts" timestamp="2026-11-25T01:06:32.699Z" hostname="api" tests="4" failures="0" skipped="0" time="3.529" errors="0">
+<testcase name="Reserva por API — validaciones › rechaza la reserva: sin firstname (obligatorio ausente)" classname="api\booking-negative.spec.ts" time="0.871">
+</testcase>
+<testcase name="Reserva por API — validaciones › rechaza la reserva: lastname con longitud inválida (2 letras)" classname="api\booking-negative.spec.ts" time="0.917">
+</testcase>
+<testcase name="Reserva por API — validaciones › rechaza la reserva: email con formato inválido" classname="api\booking-negative.spec.ts" time="0.882">
+</testcase>
+<testcase name="Reserva por API — validaciones › rechaza la reserva: teléfono demasiado corto" classname="api\booking-negative.spec.ts" time="0.859">
+</testcase>
+</testsuite>
+<testsuite name="ui\reservation.spec.ts" timestamp="2026-11-25T01:06:32.699Z" hostname="ui" tests="2" failures="2" skipped="0" time="30.952" errors="0">
+<testcase name="Reserva por UI verificada por API › reserva por UI y la consulta por API: habitación 1" classname="ui\reservation.spec.ts" time="19.137">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\reservation-Reserva-por-UI-d0bdd-nsulta-por-API-habitación-1-ui\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\reservation-Reserva-por-UI-d0bdd-nsulta-por-API-habitación-1-ui\video.webm]]
+
+[[ATTACHMENT|test-results\reservation-Reserva-por-UI-d0bdd-nsulta-por-API-habitación-1-ui\error-context.md]]
+
+[[ATTACHMENT|test-results\reservation-Reserva-por-UI-d0bdd-nsulta-por-API-habitación-1-ui\trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
+<![CDATA[  [ui] › ui\reservation.spec.ts:18:5 › Reserva por UI verificada por API › reserva por UI y la consulta por API: habitación 1 @ui @smoke @regression › completar la reserva en la UI 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('heading', { name: 'Book This Room' })
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('heading', { name: 'Book This Room' }) with timeout 10000ms
+      - waiting for getByRole('heading', { name: 'Book This Room' })
+
+
+       at ..\src\pages\ReservationPage.ts:41
+
+      39 |     await this.page.goto(`/reservation/${roomid}?${query}`);
+      40 |     // La tarjeta solo se pinta cuando GET /api/room/{id} responde (hoy 500 en la demo: BUG-01).
+    > 41 |     await expect(this.bookingCardHeading).toBeVisible();
+         |                                           ^
+      42 |   }
+      43 |
+      44 |   /** Confirma las fechas elegidas y abre el formulario del huésped. */
+        at ReservationPage.open (C:\Users\ANDERSSONVIVEROSMART\Documents\aviveros-booker-qe-playwright\src\pages\ReservationPage.ts:41:43)
+        at C:\Users\ANDERSSONVIVEROSMART\Documents\aviveros-booker-qe-playwright\tests\ui\reservation.spec.ts:25:9
+        at C:\Users\ANDERSSONVIVEROSMART\Documents\aviveros-booker-qe-playwright\tests\ui\reservation.spec.ts:24:7
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\reports\test-results\reservation-Reserva-por-UI-d0bdd-nsulta-por-API-habitación-1-ui\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\reports\test-results\reservation-Reserva-por-UI-d0bdd-nsulta-por-API-habitación-1-ui\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\reports\test-results\reservation-Reserva-por-UI-d0bdd-nsulta-por-API-habitación-1-ui\error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\reports\test-results\reservation-Reserva-por-UI-d0bdd-nsulta-por-API-habitación-1-ui\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\reports\test-results\reservation-Reserva-por-UI-d0bdd-nsulta-por-API-habitación-1-ui\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="Reserva por UI verificada por API › reserva por UI y la consulta por API: habitación 2" classname="ui\reservation.spec.ts" time="11.815">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\reservation-Reserva-por-UI-77cc0-nsulta-por-API-habitación-2-ui\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\reservation-Reserva-por-UI-77cc0-nsulta-por-API-habitación-2-ui\video.webm]]
+
+[[ATTACHMENT|test-results\reservation-Reserva-por-UI-77cc0-nsulta-por-API-habitación-2-ui\error-context.md]]
+
+[[ATTACHMENT|test-results\reservation-Reserva-por-UI-77cc0-nsulta-por-API-habitación-2-ui\trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
+<![CDATA[  [ui] › ui\reservation.spec.ts:18:5 › Reserva por UI verificada por API › reserva por UI y la consulta por API: habitación 2 @ui @smoke @regression › completar la reserva en la UI 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('heading', { name: 'Book This Room' })
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('heading', { name: 'Book This Room' }) with timeout 10000ms
+      - waiting for getByRole('heading', { name: 'Book This Room' })
+
+
+       at ..\src\pages\ReservationPage.ts:41
+
+      39 |     await this.page.goto(`/reservation/${roomid}?${query}`);
+      40 |     // La tarjeta solo se pinta cuando GET /api/room/{id} responde (hoy 500 en la demo: BUG-01).
+    > 41 |     await expect(this.bookingCardHeading).toBeVisible();
+         |                                           ^
+      42 |   }
+      43 |
+      44 |   /** Confirma las fechas elegidas y abre el formulario del huésped. */
+        at ReservationPage.open (C:\Users\ANDERSSONVIVEROSMART\Documents\aviveros-booker-qe-playwright\src\pages\ReservationPage.ts:41:43)
+        at C:\Users\ANDERSSONVIVEROSMART\Documents\aviveros-booker-qe-playwright\tests\ui\reservation.spec.ts:25:9
+        at C:\Users\ANDERSSONVIVEROSMART\Documents\aviveros-booker-qe-playwright\tests\ui\reservation.spec.ts:24:7
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\reports\test-results\reservation-Reserva-por-UI-77cc0-nsulta-por-API-habitación-2-ui\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\reports\test-results\reservation-Reserva-por-UI-77cc0-nsulta-por-API-habitación-2-ui\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\reports\test-results\reservation-Reserva-por-UI-77cc0-nsulta-por-API-habitación-2-ui\error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\reports\test-results\reservation-Reserva-por-UI-77cc0-nsulta-por-API-habitación-2-ui\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\reports\test-results\reservation-Reserva-por-UI-77cc0-nsulta-por-API-habitación-2-ui\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+</testsuite>
+</testsuites>

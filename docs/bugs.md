@@ -20,12 +20,26 @@ así que **no se puede completar una reserva por UI**. Tampoco se pueden borrar 
 `GET /api/room/{1,2}` → 500 y la página queda en blanco. Corrida: `evidence/2026-11-24T23-14-52-923Z` (trace, screenshot, video).
 
 ## BUG-02: `POST /api/booking` sin `bookingdates` responde 500 (severidad media)
+**Pasos:** `POST /api/booking` con `roomid`, `firstname`, `lastname`, `depositpaid`, `email` y `phone` válidos, **sin** `bookingdates`.
 **Esperado:** 400 con un mensaje de validación. **Observado:** `500 {"errors":["Failed to create booking"]}`.
 Un dato obligatorio ausente provoca un error de servidor en vez de una validación.
+**Evidencia:** prueba `sin bookingdates responde 400 (BUG-02 conocido)` en `tests/api/booking-contract.spec.ts`
+(`test.fail`; el error con el 500 recibido queda en el reporte de la corrida oficial).
+**Observación:** esta llamada tarda ~30 s en responder desde la suite. Es coherente con el `fetchWithRetry` del proxy,
+que reintenta los 5xx con espera creciente, y refuerza la hipótesis de BUG-04: los POST se reintentan.
 
 ## BUG-03: checkout anterior al checkin responde 409 en vez de 400 (severidad baja)
+**Pasos:** `POST /api/booking` válido pero con `checkout` anterior a `checkin` (fechas libres invertidas).
 **Esperado:** 400 "fechas inválidas". **Observado:** `409 {"error":"Failed to create booking"}`, el mismo código y
 mensaje que un conflicto de disponibilidad. El cliente no puede distinguir los dos errores.
+**Evidencia:** prueba `checkout anterior al checkin responde 400 (BUG-03 conocido)` en `tests/api/booking-contract.spec.ts`.
+
+## BUG-05: `GET /api/booking/` sin `roomid` responde 400 (severidad baja)
+**Contrato (Postman, GetBookings):** *"remove the query string to return all bookings within the API"*.
+**Pasos:** login → `GET /api/booking` con `Cookie: token=<token>` y sin query string.
+**Esperado:** 200 con todas las reservas. **Observado:** `400 {"error":"Room ID is required"}`.
+El proxy de Next.js (`app/api/booking/route.ts`) exige `roomid` aunque el contrato lo declara opcional.
+**Evidencia:** prueba `GET /booking/ sin roomid devuelve todas las reservas (BUG-05 conocido)` en `tests/api/booking-contract.spec.ts`.
 
 ## BUG-04: la reserva por UI puede responder 409 aunque se guardó, y la página se cae (severidad media, intermitente)
 Encontrado en un diagnóstico temporal que reemplazó solo `GET /api/room/{id}` (para esquivar BUG-01) y dejó el

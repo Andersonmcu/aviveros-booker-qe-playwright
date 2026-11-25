@@ -26,6 +26,12 @@ Implementada: [`playwright-test-implementer`](../.claude/skills/playwright-test-
 - **Salidas:** factory nueva o actualizada en `src/data/`, reporte de registros huérfanos (p. ej. apellidos `Qa*`).
 - **Verificación:** la factory produce 100 registros válidos consecutivos aceptados por el backend; el reporte de huérfanos coincide con lo creado por la suite.
 
+## Cómo las adoptaría el equipo
+1. **Versionadas con el código:** las skills viven en `.claude/skills/` del repositorio, así que se revisan en PR igual que el código y cualquier persona que clone el repo las tiene disponibles.
+2. **Piloto corto:** 2 semanas con 2–3 personas usando `failure-triage` sobre los pipelines reales. Cada uso registra el resultado y las correcciones humanas, como en la sección 8 del README.
+3. **Ajuste por evidencia:** cada corrección humana repetida se convierte en una regla de la skill. Así se precisó `playwright-test-implementer` tras su primer uso (diagnóstico temporal con `page.route`).
+4. **Responsable y criterio de retiro:** cada skill tiene un dueño. Si después del piloto no reduce tiempo ni re-trabajo (métricas abajo), se simplifica o se reemplaza por un script.
+
 ## Cómo mediría su utilidad
 - **Tiempo de triage** de un pipeline en rojo (antes/después de `failure-triage`).
 - **% de fallos bien clasificados** en la primera pasada (revisado por una persona).
