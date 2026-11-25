@@ -1,0 +1,904 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Users\\ANDERSSONVIVEROSMART\\tools\\node\\node-v26.13.1-win-x64\\node.exe",
+      "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\node_modules\\@playwright\\test\\cli.js",
+      "test"
+    ],
+    "configFile": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\playwright.config.ts",
+    "rootDir": "C:/Users/ANDERSSONVIVEROSMART/Documents/aviveros-booker-qe-playwright/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/ANDERSSONVIVEROSMART/Documents/aviveros-booker-qe-playwright/reports/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "api",
+        "name": "api",
+        "testDir": "C:/Users/ANDERSSONVIVEROSMART/Documents/aviveros-booker-qe-playwright/tests/api",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Users/ANDERSSONVIVEROSMART/Documents/aviveros-booker-qe-playwright/reports/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "ui",
+        "name": "ui",
+        "testDir": "C:/Users/ANDERSSONVIVEROSMART/Documents/aviveros-booker-qe-playwright/tests/ui",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\reports\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "api",
+        "testDir": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api",
+        "snapshotDir": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "https://automationintesting.online",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "video": "retain-on-failure",
+          "extraHTTPHeaders": {
+            "Accept": "application/json"
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "api"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\reports\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "ui",
+        "testDir": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\ui",
+        "snapshotDir": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\ui",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "https://automationintesting.online",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "video": "retain-on-failure",
+          "extraHTTPHeaders": {
+            "Accept": "application/json"
+          },
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/159.0.8154.6 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "ui"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "reports/html",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "reports/results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "reports/junit.xml"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.1",
+    "workers": 2,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "api\\booking-create.spec.ts",
+      "file": "api/booking-create.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Reserva por API — flujo exitoso",
+          "file": "api/booking-create.spec.ts",
+          "line": 13,
+          "column": 6,
+          "specs": [
+            {
+              "title": "crea y consulta una reserva: habitación Single, 2 noches, sin depósito",
+              "ok": false,
+              "tags": [
+                "api",
+                "smoke",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 2902,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m409\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m409\u001b[39m\n    at C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api\\booking-create.spec.ts:25:35\n    at C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api\\booking-create.spec.ts:23:23",
+                        "location": {
+                          "file": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api\\booking-create.spec.ts",
+                          "column": 35,
+                          "line": 25
+                        },
+                        "snippet": " \u001b[90m 23 |\u001b[39m       \u001b[36mconst\u001b[39m created \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m test\u001b[33m.\u001b[39mstep(\u001b[32m'POST /api/booking responde 201 con la reserva creada'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m () \u001b[33m=>\u001b[39m {\n \u001b[90m 24 |\u001b[39m         \u001b[36mconst\u001b[39m response \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m bookingApi\u001b[33m.\u001b[39mcreate(request)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 25 |\u001b[39m         expect(response\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m201\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 26 |\u001b[39m         \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m (\u001b[36mawait\u001b[39m response\u001b[33m.\u001b[39mjson()) \u001b[36mas\u001b[39m \u001b[33mBookingResponse\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m         trackBooking(body\u001b[33m.\u001b[39mbookingid)\u001b[33m;\u001b[39m\n \u001b[90m 28 |\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api\\booking-create.spec.ts",
+                            "column": 35,
+                            "line": 25
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m409\u001b[39m\n\n  23 |       const created = await test.step('POST /api/booking responde 201 con la reserva creada', async () => {\n  24 |         const response = await bookingApi.create(request);\n> 25 |         expect(response.status()).toBe(201);\n     |                                   ^\n  26 |         const body = (await response.json()) as BookingResponse;\n  27 |         trackBooking(body.bookingid);\n  28 |\n    at C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api\\booking-create.spec.ts:25:35\n    at C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api\\booking-create.spec.ts:23:23"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "POST /api/booking responde 201 con la reserva creada",
+                          "duration": 2281,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m409\u001b[39m",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m409\u001b[39m\n    at C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api\\booking-create.spec.ts:25:35\n    at C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api\\booking-create.spec.ts:23:23",
+                            "location": {
+                              "file": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api\\booking-create.spec.ts",
+                              "column": 35,
+                              "line": 25
+                            },
+                            "snippet": " \u001b[90m 23 |\u001b[39m       \u001b[36mconst\u001b[39m created \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m test\u001b[33m.\u001b[39mstep(\u001b[32m'POST /api/booking responde 201 con la reserva creada'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m () \u001b[33m=>\u001b[39m {\n \u001b[90m 24 |\u001b[39m         \u001b[36mconst\u001b[39m response \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m bookingApi\u001b[33m.\u001b[39mcreate(request)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 25 |\u001b[39m         expect(response\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m201\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 26 |\u001b[39m         \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m (\u001b[36mawait\u001b[39m response\u001b[33m.\u001b[39mjson()) \u001b[36mas\u001b[39m \u001b[33mBookingResponse\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m         trackBooking(body\u001b[33m.\u001b[39mbookingid)\u001b[33m;\u001b[39m\n \u001b[90m 28 |\u001b[39m"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-11-25T00:35:38.120Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\reports\\test-results\\booking-create-Reserva-por-8ee2d-ingle-2-noches-sin-depósito-api\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\reports\\test-results\\booking-create-Reserva-por-8ee2d-ingle-2-noches-sin-depósito-api\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api\\booking-create.spec.ts",
+                        "column": 35,
+                        "line": 25
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "64f8bb20de3760bf02d9-4143903cff71c92e794f",
+              "file": "api/booking-create.spec.ts",
+              "line": 15,
+              "column": 5
+            },
+            {
+              "title": "crea y consulta una reserva: habitación Suite, 4 noches, con depósito",
+              "ok": false,
+              "tags": [
+                "api",
+                "smoke",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 2792,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m409\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m409\u001b[39m\n    at C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api\\booking-create.spec.ts:25:35\n    at C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api\\booking-create.spec.ts:23:23",
+                        "location": {
+                          "file": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api\\booking-create.spec.ts",
+                          "column": 35,
+                          "line": 25
+                        },
+                        "snippet": " \u001b[90m 23 |\u001b[39m       \u001b[36mconst\u001b[39m created \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m test\u001b[33m.\u001b[39mstep(\u001b[32m'POST /api/booking responde 201 con la reserva creada'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m () \u001b[33m=>\u001b[39m {\n \u001b[90m 24 |\u001b[39m         \u001b[36mconst\u001b[39m response \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m bookingApi\u001b[33m.\u001b[39mcreate(request)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 25 |\u001b[39m         expect(response\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m201\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 26 |\u001b[39m         \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m (\u001b[36mawait\u001b[39m response\u001b[33m.\u001b[39mjson()) \u001b[36mas\u001b[39m \u001b[33mBookingResponse\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m         trackBooking(body\u001b[33m.\u001b[39mbookingid)\u001b[33m;\u001b[39m\n \u001b[90m 28 |\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api\\booking-create.spec.ts",
+                            "column": 35,
+                            "line": 25
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m409\u001b[39m\n\n  23 |       const created = await test.step('POST /api/booking responde 201 con la reserva creada', async () => {\n  24 |         const response = await bookingApi.create(request);\n> 25 |         expect(response.status()).toBe(201);\n     |                                   ^\n  26 |         const body = (await response.json()) as BookingResponse;\n  27 |         trackBooking(body.bookingid);\n  28 |\n    at C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api\\booking-create.spec.ts:25:35\n    at C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api\\booking-create.spec.ts:23:23"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "POST /api/booking responde 201 con la reserva creada",
+                          "duration": 2293,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m409\u001b[39m",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m409\u001b[39m\n    at C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api\\booking-create.spec.ts:25:35\n    at C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api\\booking-create.spec.ts:23:23",
+                            "location": {
+                              "file": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api\\booking-create.spec.ts",
+                              "column": 35,
+                              "line": 25
+                            },
+                            "snippet": " \u001b[90m 23 |\u001b[39m       \u001b[36mconst\u001b[39m created \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m test\u001b[33m.\u001b[39mstep(\u001b[32m'POST /api/booking responde 201 con la reserva creada'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m () \u001b[33m=>\u001b[39m {\n \u001b[90m 24 |\u001b[39m         \u001b[36mconst\u001b[39m response \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m bookingApi\u001b[33m.\u001b[39mcreate(request)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 25 |\u001b[39m         expect(response\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m201\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 26 |\u001b[39m         \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m (\u001b[36mawait\u001b[39m response\u001b[33m.\u001b[39mjson()) \u001b[36mas\u001b[39m \u001b[33mBookingResponse\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m         trackBooking(body\u001b[33m.\u001b[39mbookingid)\u001b[33m;\u001b[39m\n \u001b[90m 28 |\u001b[39m"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-11-25T00:35:38.019Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\reports\\test-results\\booking-create-Reserva-por-680a7-Suite-4-noches-con-depósito-api\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\reports\\test-results\\booking-create-Reserva-por-680a7-Suite-4-noches-con-depósito-api\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api\\booking-create.spec.ts",
+                        "column": 35,
+                        "line": 25
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "64f8bb20de3760bf02d9-102c9191e1346b3f6dff",
+              "file": "api/booking-create.spec.ts",
+              "line": 15,
+              "column": 5
+            }
+          ]
+        },
+        {
+          "title": "Reserva por API — contrato vs observado",
+          "file": "api/booking-create.spec.ts",
+          "line": 56,
+          "column": 6,
+          "specs": [
+            {
+              "title": "consulta por id según contrato (BUG-01 conocido)",
+              "ok": true,
+              "tags": [
+                "api",
+                "regression",
+                "known-bug"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "fail",
+                      "description": "BUG-01: GET /api/booking/{id} responde 500 en la demo",
+                      "location": {
+                        "file": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api\\booking-create.spec.ts",
+                        "line": 63,
+                        "column": 10
+                      }
+                    },
+                    {
+                      "type": "cleanup",
+                      "description": "No se pudo borrar la reserva 6: DELETE respondió 500 (ver BUG-01)"
+                    }
+                  ],
+                  "expectedStatus": "failed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 1517,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api\\booking-create.spec.ts:71:31",
+                        "location": {
+                          "file": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api\\booking-create.spec.ts",
+                          "column": 31,
+                          "line": 71
+                        },
+                        "snippet": " \u001b[90m 69 |\u001b[39m\n \u001b[90m 70 |\u001b[39m     \u001b[36mconst\u001b[39m response \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m bookingApi\u001b[33m.\u001b[39mgetById(bookingid)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 71 |\u001b[39m     expect(response\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m200\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 72 |\u001b[39m     expect(\u001b[36mawait\u001b[39m response\u001b[33m.\u001b[39mjson())\u001b[33m.\u001b[39mtoMatchObject({ bookingid\u001b[33m,\u001b[39m roomid\u001b[33m:\u001b[39m \u001b[35m2\u001b[39m\u001b[33m,\u001b[39m lastname\u001b[33m:\u001b[39m request\u001b[33m.\u001b[39mlastname })\u001b[33m;\u001b[39m\n \u001b[90m 73 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 74 |\u001b[39m })\u001b[33m;\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api\\booking-create.spec.ts",
+                            "column": 31,
+                            "line": 71
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n  69 |\n  70 |     const response = await bookingApi.getById(bookingid);\n> 71 |     expect(response.status()).toBe(200);\n     |                               ^\n  72 |     expect(await response.json()).toMatchObject({ bookingid, roomid: 2, lastname: request.lastname });\n  73 |   });\n  74 | });\n    at C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api\\booking-create.spec.ts:71:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-25T00:35:46.273Z",
+                      "annotations": [
+                        {
+                          "type": "fail",
+                          "description": "BUG-01: GET /api/booking/{id} responde 500 en la demo",
+                          "location": {
+                            "file": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api\\booking-create.spec.ts",
+                            "line": 63,
+                            "column": 10
+                          }
+                        },
+                        {
+                          "type": "cleanup",
+                          "description": "No se pudo borrar la reserva 6: DELETE respondió 500 (ver BUG-01)"
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\reports\\test-results\\booking-create-Reserva-por-674f4-n-contrato-BUG-01-conocido--api\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\api\\booking-create.spec.ts",
+                        "column": 31,
+                        "line": 71
+                      }
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "64f8bb20de3760bf02d9-01d3d1a9e2cd35a12554",
+              "file": "api/booking-create.spec.ts",
+              "line": 62,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api\\booking-negative.spec.ts",
+      "file": "api/booking-negative.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Reserva por API — validaciones",
+          "file": "api/booking-negative.spec.ts",
+          "line": 35,
+          "column": 6,
+          "specs": [
+            {
+              "title": "rechaza la reserva: sin firstname (obligatorio ausente)",
+              "ok": true,
+              "tags": [
+                "api",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 844,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "POST /api/booking responde 400 con el error de validación",
+                          "duration": 210
+                        },
+                        {
+                          "title": "no existe ninguna reserva con el apellido de la prueba",
+                          "duration": 243
+                        }
+                      ],
+                      "startTime": "2026-11-25T00:35:46.370Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a995375542b83e527000-69d65acd6c74c6cafcea",
+              "file": "api/booking-negative.spec.ts",
+              "line": 37,
+              "column": 5
+            },
+            {
+              "title": "rechaza la reserva: lastname con longitud inválida (2 letras)",
+              "ok": true,
+              "tags": [
+                "api",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 849,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "POST /api/booking responde 400 con el error de validación",
+                          "duration": 227
+                        },
+                        {
+                          "title": "no existe ninguna reserva con el apellido de la prueba",
+                          "duration": 259
+                        }
+                      ],
+                      "startTime": "2026-11-25T00:35:47.752Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a995375542b83e527000-36d149ef830e59a74ba3",
+              "file": "api/booking-negative.spec.ts",
+              "line": 37,
+              "column": 5
+            },
+            {
+              "title": "rechaza la reserva: email con formato inválido",
+              "ok": true,
+              "tags": [
+                "api",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 832,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "POST /api/booking responde 400 con el error de validación",
+                          "duration": 223
+                        },
+                        {
+                          "title": "no existe ninguna reserva con el apellido de la prueba",
+                          "duration": 234
+                        }
+                      ],
+                      "startTime": "2026-11-25T00:35:48.406Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a995375542b83e527000-b504cd204351cc8ca39a",
+              "file": "api/booking-negative.spec.ts",
+              "line": 37,
+              "column": 5
+            },
+            {
+              "title": "rechaza la reserva: teléfono demasiado corto",
+              "ok": true,
+              "tags": [
+                "api",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 854,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "POST /api/booking responde 400 con el error de validación",
+                          "duration": 214
+                        },
+                        {
+                          "title": "no existe ninguna reserva con el apellido de la prueba",
+                          "duration": 227
+                        }
+                      ],
+                      "startTime": "2026-11-25T00:35:48.614Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a995375542b83e527000-efd08772fac4be4c23a4",
+              "file": "api/booking-negative.spec.ts",
+              "line": 37,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ui\\reservation.spec.ts",
+      "file": "ui/reservation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Reserva por UI verificada por API",
+          "file": "ui/reservation.spec.ts",
+          "line": 16,
+          "column": 6,
+          "specs": [
+            {
+              "title": "reserva por UI y la consulta por API: habitación 1",
+              "ok": false,
+              "tags": [
+                "ui",
+                "smoke",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui",
+                  "projectName": "ui",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 19580,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Book This Room' })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Book This Room' }) with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Book This Room' })\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Book This Room' })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Book This Room' }) with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Book This Room' })\u001b[22m\n\n    at ReservationPage.open (C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\src\\pages\\ReservationPage.ts:41:43)\n    at C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\ui\\reservation.spec.ts:25:9\n    at C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\ui\\reservation.spec.ts:24:7",
+                        "location": {
+                          "file": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\src\\pages\\ReservationPage.ts",
+                          "column": 43,
+                          "line": 41
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\src\\pages\\ReservationPage.ts:41\n\n \u001b[90m 39 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mgoto(\u001b[32m`/reservation/${roomid}?${query}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 40 |\u001b[39m     \u001b[90m// La tarjeta solo se pinta cuando GET /api/room/{id} responde (hoy 500 en la demo: BUG-01).\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 41 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbookingCardHeading)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 42 |\u001b[39m   }\n \u001b[90m 43 |\u001b[39m\n \u001b[90m 44 |\u001b[39m   \u001b[90m/** Confirma las fechas elegidas y abre el formulario del huésped. */\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\src\\pages\\ReservationPage.ts",
+                            "column": 43,
+                            "line": 41
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Book This Room' })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Book This Room' }) with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Book This Room' })\u001b[22m\n\n\n   at ..\\src\\pages\\ReservationPage.ts:41\n\n  39 |     await this.page.goto(`/reservation/${roomid}?${query}`);\n  40 |     // La tarjeta solo se pinta cuando GET /api/room/{id} responde (hoy 500 en la demo: BUG-01).\n> 41 |     await expect(this.bookingCardHeading).toBeVisible();\n     |                                           ^\n  42 |   }\n  43 |\n  44 |   /** Confirma las fechas elegidas y abre el formulario del huésped. */\n    at ReservationPage.open (C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\src\\pages\\ReservationPage.ts:41:43)\n    at C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\ui\\reservation.spec.ts:25:9\n    at C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\ui\\reservation.spec.ts:24:7"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "preparar fechas libres y huésped sintético",
+                          "duration": 407
+                        },
+                        {
+                          "title": "completar la reserva en la UI",
+                          "duration": 18405,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Book This Room' })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Book This Room' }) with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Book This Room' })\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Book This Room' })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Book This Room' }) with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Book This Room' })\u001b[22m\n\n    at ReservationPage.open (C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\src\\pages\\ReservationPage.ts:41:43)\n    at C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\ui\\reservation.spec.ts:25:9\n    at C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\ui\\reservation.spec.ts:24:7",
+                            "location": {
+                              "file": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\src\\pages\\ReservationPage.ts",
+                              "column": 43,
+                              "line": 41
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\pages\\ReservationPage.ts:41\n\n \u001b[90m 39 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mgoto(\u001b[32m`/reservation/${roomid}?${query}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 40 |\u001b[39m     \u001b[90m// La tarjeta solo se pinta cuando GET /api/room/{id} responde (hoy 500 en la demo: BUG-01).\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 41 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbookingCardHeading)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 42 |\u001b[39m   }\n \u001b[90m 43 |\u001b[39m\n \u001b[90m 44 |\u001b[39m   \u001b[90m/** Confirma las fechas elegidas y abre el formulario del huésped. */\u001b[39m"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-11-25T00:35:49.617Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\reports\\test-results\\reservation-Reserva-por-UI-d0bdd-nsulta-por-API-habitación-1-ui\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\reports\\test-results\\reservation-Reserva-por-UI-d0bdd-nsulta-por-API-habitación-1-ui\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\reports\\test-results\\reservation-Reserva-por-UI-d0bdd-nsulta-por-API-habitación-1-ui\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\reports\\test-results\\reservation-Reserva-por-UI-d0bdd-nsulta-por-API-habitación-1-ui\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\src\\pages\\ReservationPage.ts",
+                        "column": 43,
+                        "line": 41
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "3612482aaacd88f2e168-eec22230f8c4a34c9e47",
+              "file": "ui/reservation.spec.ts",
+              "line": 18,
+              "column": 5
+            },
+            {
+              "title": "reserva por UI y la consulta por API: habitación 2",
+              "ok": false,
+              "tags": [
+                "ui",
+                "smoke",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui",
+                  "projectName": "ui",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 19377,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Book This Room' })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Book This Room' }) with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Book This Room' })\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Book This Room' })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Book This Room' }) with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Book This Room' })\u001b[22m\n\n    at ReservationPage.open (C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\src\\pages\\ReservationPage.ts:41:43)\n    at C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\ui\\reservation.spec.ts:25:9\n    at C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\ui\\reservation.spec.ts:24:7",
+                        "location": {
+                          "file": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\src\\pages\\ReservationPage.ts",
+                          "column": 43,
+                          "line": 41
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\src\\pages\\ReservationPage.ts:41\n\n \u001b[90m 39 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mgoto(\u001b[32m`/reservation/${roomid}?${query}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 40 |\u001b[39m     \u001b[90m// La tarjeta solo se pinta cuando GET /api/room/{id} responde (hoy 500 en la demo: BUG-01).\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 41 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbookingCardHeading)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 42 |\u001b[39m   }\n \u001b[90m 43 |\u001b[39m\n \u001b[90m 44 |\u001b[39m   \u001b[90m/** Confirma las fechas elegidas y abre el formulario del huésped. */\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\src\\pages\\ReservationPage.ts",
+                            "column": 43,
+                            "line": 41
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Book This Room' })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Book This Room' }) with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Book This Room' })\u001b[22m\n\n\n   at ..\\src\\pages\\ReservationPage.ts:41\n\n  39 |     await this.page.goto(`/reservation/${roomid}?${query}`);\n  40 |     // La tarjeta solo se pinta cuando GET /api/room/{id} responde (hoy 500 en la demo: BUG-01).\n> 41 |     await expect(this.bookingCardHeading).toBeVisible();\n     |                                           ^\n  42 |   }\n  43 |\n  44 |   /** Confirma las fechas elegidas y abre el formulario del huésped. */\n    at ReservationPage.open (C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\src\\pages\\ReservationPage.ts:41:43)\n    at C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\ui\\reservation.spec.ts:25:9\n    at C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\ui\\reservation.spec.ts:24:7"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "preparar fechas libres y huésped sintético",
+                          "duration": 518
+                        },
+                        {
+                          "title": "completar la reserva en la UI",
+                          "duration": 18153,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Book This Room' })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Book This Room' }) with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Book This Room' })\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'Book This Room' })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'Book This Room' }) with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Book This Room' })\u001b[22m\n\n    at ReservationPage.open (C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\src\\pages\\ReservationPage.ts:41:43)\n    at C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\ui\\reservation.spec.ts:25:9\n    at C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\tests\\ui\\reservation.spec.ts:24:7",
+                            "location": {
+                              "file": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\src\\pages\\ReservationPage.ts",
+                              "column": 43,
+                              "line": 41
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\pages\\ReservationPage.ts:41\n\n \u001b[90m 39 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mgoto(\u001b[32m`/reservation/${roomid}?${query}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 40 |\u001b[39m     \u001b[90m// La tarjeta solo se pinta cuando GET /api/room/{id} responde (hoy 500 en la demo: BUG-01).\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 41 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbookingCardHeading)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 42 |\u001b[39m   }\n \u001b[90m 43 |\u001b[39m\n \u001b[90m 44 |\u001b[39m   \u001b[90m/** Confirma las fechas elegidas y abre el formulario del huésped. */\u001b[39m"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-11-25T00:35:49.916Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\reports\\test-results\\reservation-Reserva-por-UI-77cc0-nsulta-por-API-habitación-2-ui\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\reports\\test-results\\reservation-Reserva-por-UI-77cc0-nsulta-por-API-habitación-2-ui\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\reports\\test-results\\reservation-Reserva-por-UI-77cc0-nsulta-por-API-habitación-2-ui\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\reports\\test-results\\reservation-Reserva-por-UI-77cc0-nsulta-por-API-habitación-2-ui\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\ANDERSSONVIVEROSMART\\Documents\\aviveros-booker-qe-playwright\\src\\pages\\ReservationPage.ts",
+                        "column": 43,
+                        "line": 41
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "3612482aaacd88f2e168-5d0dbd90a8c18e8a3308",
+              "file": "ui/reservation.spec.ts",
+              "line": 18,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-25T00:35:37.529Z",
+    "duration": 32856.646,
+    "expected": 5,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  }
+}

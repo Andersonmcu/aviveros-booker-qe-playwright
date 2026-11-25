@@ -1,0 +1,17 @@
+{
+  "command": "npx playwright test --workers=2",
+  "exitCode": 1,
+  "verdict": "FAILED",
+  "durationMs": 19678,
+  "stats": {
+    "startTime": "2026-11-24T23:14:54.257Z",
+    "duration": 18179.207,
+    "expected": 7,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  },
+  "baseURL": "https://automationintesting.online",
+  "workers": "2",
+  "node": "v26.13.1"
+}

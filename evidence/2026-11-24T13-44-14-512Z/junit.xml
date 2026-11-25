@@ -1,0 +1,37 @@
+<testsuites id="" name="" tests="6" failures="0" skipped="0" errors="0" time="4.772371">
+<testsuite name="api\booking-create.spec.ts" timestamp="2026-11-24T13:44:16.147Z" hostname="api" tests="3" failures="0" skipped="0" time="3.565" errors="0">
+<testcase name="Reserva por API — flujo exitoso › crea y consulta una reserva: habitación Single, 2 noches, sin depósito" classname="api\booking-create.spec.ts" time="1.263">
+<properties>
+<property name="cleanup" value="No se pudo borrar la reserva 6: DELETE respondió 500 (ver BUG-01)">
+</property>
+</properties>
+</testcase>
+<testcase name="Reserva por API — flujo exitoso › crea y consulta una reserva: habitación Suite, 4 noches, con depósito" classname="api\booking-create.spec.ts" time="1.267">
+<properties>
+<property name="cleanup" value="No se pudo borrar la reserva 7: DELETE respondió 500 (ver BUG-01)">
+</property>
+</properties>
+</testcase>
+<testcase name="Reserva por API — contrato vs observado › consulta por id según contrato (BUG-01 conocido)" classname="api\booking-create.spec.ts" time="1.035">
+<properties>
+<property name="fail" value="BUG-01: GET /api/booking/{id} responde 500 en la demo">
+</property>
+<property name="cleanup" value="No se pudo borrar la reserva 8: DELETE respondió 500 (ver BUG-01)">
+</property>
+</properties>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\booking-create-Reserva-por-674f4-n-contrato-BUG-01-conocido--api\error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="api\booking-negative.spec.ts" timestamp="2026-11-24T13:44:16.147Z" hostname="api" tests="3" failures="0" skipped="0" time="2.633" errors="0">
+<testcase name="Reserva por API — validaciones › rechaza la reserva: sin firstname (obligatorio ausente)" classname="api\booking-negative.spec.ts" time="0.831">
+</testcase>
+<testcase name="Reserva por API — validaciones › rechaza la reserva: email con formato inválido" classname="api\booking-negative.spec.ts" time="0.837">
+</testcase>
+<testcase name="Reserva por API — validaciones › rechaza la reserva: teléfono demasiado corto" classname="api\booking-negative.spec.ts" time="0.965">
+</testcase>
+</testsuite>
+</testsuites>

@@ -51,6 +51,9 @@ en lugar de inventar una nueva. El resultado debe poder ejecutarlo otro desarrol
   `expect.poll` para consultas API eventualmente consistentes). **Prohibido** `waitForTimeout`, `sleep`, `setTimeout`.
 - **Aislamiento**: ninguna prueba depende de otra ni del orden; nada de estado global mutable; `fullyParallel` activo.
 - **Backend real**: no usar `page.route` para simular respuestas del backend en los escenarios de negocio.
+  Solo se permite como **diagnóstico temporal** para aislar un defecto (p. ej. saltar un endpoint roto y probar
+  el resto del flujo): debe borrarse antes de terminar, declararse en el resumen y conservar su trace en `evidence/`
+  si sustenta un bug.
 - **Aserciones de negocio**: identidad (`bookingid`), habitación, fechas y datos del huésped; no solo "status 200".
 
 ## Verificación (ejecutar siempre, en este orden)

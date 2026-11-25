@@ -9,6 +9,7 @@ import { BookingRequest, Guest } from '../api/types';
 import { env } from '../config/env';
 import { pickAvailableRange } from '../data/dates';
 import { buildGuest } from '../data/guestFactory';
+import { ReservationPage } from '../pages/ReservationPage';
 
 export interface BookingDraftOptions {
   roomid: number;
@@ -29,6 +30,8 @@ type TestFixtures = {
   bookingDraft: (options: BookingDraftOptions) => Promise<BookingRequest>;
   /** Registra ids creados para intentar limpiarlos al final de la prueba. */
   trackBooking: (bookingid: number) => void;
+  /** Page object de /reservation/{roomid}. */
+  reservationPage: ReservationPage;
 };
 
 export const test = base.extend<TestFixtures, WorkerFixtures>({
@@ -57,6 +60,10 @@ export const test = base.extend<TestFixtures, WorkerFixtures>({
         ...buildGuest(guest),
       };
     });
+  },
+
+  reservationPage: async ({ page }, use) => {
+    await use(new ReservationPage(page));
   },
 
   trackBooking: async ({ bookingApi }, use, testInfo) => {

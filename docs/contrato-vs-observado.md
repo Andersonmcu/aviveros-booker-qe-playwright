@@ -19,4 +19,5 @@ Entorno observado: `https://automationintesting.online`, 2026-11-24.
 | 10 | `GET /api/booking/{id}` | 200 con la reserva | **500** `Internal Server Error` (con o sin token, id existente o no) | BUG-01, prueba `test.fail` |
 | 11 | `DELETE /api/booking/{id}` | 202/200 | **500** | BUG-01: no se puede limpiar; se anota en el reporte |
 | 12 | `GET /api/room/{id}` | 200 con la habitación | **500** | BUG-01: la página `/reservation/{id}` de la UI no carga |
+| 12b | UI `/reservation/{id}` (formulario) | "Reserve Now" → datos del huésped → "Reserve Now" → "Booking Confirmed" con `checkin - checkout` | No carga por BUG-01. Con esa respuesta reemplazada en un diagnóstico, el flujo funciona (201 y confirmación). Intermitente: 409 aunque la reserva se guardó, y la página se cae | `tests/ui/reservation.spec.ts` falla por BUG-01; ver BUG-04 |
 | 13 | `GET /api/booking/summary?roomid=` | Fechas ocupadas | 200 con token, 401 sin token. Usa `bookingDates` (camelCase) en lugar de `bookingdates` | Inconsistencia de nombres |
